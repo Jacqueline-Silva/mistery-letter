@@ -3,8 +3,6 @@ let pCartaGerada = document.getElementById('carta-gerada');
 let btnCriarCarta = document.getElementById('criar-carta');
 
 function geraCarta() {
-  pCartaGerada.removeChild(pCartaGerada.firstChild);
-
   let valueInput = inpCartaTexto.value.split(' ');
   if (valueInput !== '') {
     for (let palavra in valueInput) {
