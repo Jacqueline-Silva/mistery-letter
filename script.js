@@ -2,9 +2,13 @@ const inpCartaTexto = document.getElementById('carta-texto');
 const pCartaGerada = document.getElementById('carta-gerada');
 const btnCriarCarta = document.getElementById('criar-carta');
 
+const arrayEstilo = ['newspaper', 'magazine1', 'magazine2'];
+const arrayTamanho = ['medium', 'big', 'reallybig'];
+const arrayRotacao = ['rotateleft', 'rotateright'];
+const arrayInclinacao = ['skewleft', 'skewright'];
+
 function geraCarta() {
   const valueInput = inpCartaTexto.value.split(' ');
-
   while (pCartaGerada.firstChild) {
     pCartaGerada.removeChild(pCartaGerada.firstChild);
   }
@@ -16,6 +20,10 @@ function geraCarta() {
   for (let palavra = 0; palavra < valueInput.length; palavra += 1) {
     const spanDoP = document.createElement('span');
     spanDoP.innerHTML = valueInput[palavra];
+    spanDoP.classList.add(arrayEstilo[Math.floor(Math.random() * 3)]);
+    spanDoP.classList.add(arrayTamanho[Math.floor(Math.random() * 3)]);
+    spanDoP.classList.add(arrayRotacao[Math.floor(Math.random() * 2)]);
+    spanDoP.classList.add(arrayInclinacao[Math.floor(Math.random() * 2)]);
     pCartaGerada.appendChild(spanDoP);
   }
 }
